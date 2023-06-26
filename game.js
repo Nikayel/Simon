@@ -3,14 +3,22 @@ const buttonColors = ["red","blue","green","yellow"];
 const rand = nextSequence();
 const randomChosenColors = buttonColors[rand];
 const gamepattern = [];
+const userClickedPattern = [];
 
 gamepattern.push(randomChosenColors);
 
 const chosenButton = document.getElementById(randomChosenColors);
 flashButton(chosenButton);
 
+//EventListener:
+const buttons = document.querySelectorAll(".btn");
+buttons.forEach(function(button){
+    button.addEventListener("click",function(event){
+        const userChosenColor = event.target.id;
+        userClickedPattern.push(userChosenColor);
 
-
+    });
+});
 
 
 

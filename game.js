@@ -16,9 +16,13 @@ buttons.forEach(function(button){
     button.addEventListener("click",function(event){
         const userChosenColor = event.target.id;
         userClickedPattern.push(userChosenColor);
+        animatePress(userChosenColor);
 
     });
 });
+document.addEventListener("keypress",function(){
+    nextSequence();
+})
 
 
 
@@ -39,4 +43,12 @@ function flashButton(button){
     setTimeout(function(){
         button.classList.remove("pressed");
     },300);
+}
+//function to animate the button that is clicked by the user:
+function animatePress(currentColor){
+    const button = document.querySelector(`.${currentColor}`);
+    button.classList.add("pressed");
+    setTimeout(function(){
+        button.classList.remove("pressed");
+    },100);
 }

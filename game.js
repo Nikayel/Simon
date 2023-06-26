@@ -4,6 +4,8 @@ const rand = nextSequence();
 const randomChosenColors = buttonColors[rand];
 const gamepattern = [];
 const userClickedPattern = [];
+let started = false;
+let level = 1;
 
 gamepattern.push(randomChosenColors);
 
@@ -20,9 +22,15 @@ buttons.forEach(function(button){
 
     });
 });
-document.addEventListener("keypress",function(){
-    nextSequence();
-})
+
+document.addEventListener("keypress",function(event){
+    if(!started){
+        nextSequence();
+        started = true;
+        document.getElementById("level-title").textContent = "level "+level;
+        level++;
+    }
+});
 
 
 

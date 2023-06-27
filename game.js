@@ -1,34 +1,31 @@
 // constants
 const buttonColors = ["red","blue","green","yellow"];
-const rand = nextSequence();
-const randomChosenColors = buttonColors[rand];
-const gamepattern = [];
-const userClickedPattern = [];
+var gamepattern = [];
+var userClickedPattern = [];
 let started = false;
-let level = 1;
+var level = 0;
 
-gamepattern.push(randomChosenColors);
 
-const chosenButton = document.getElementById(randomChosenColors);
-flashButton(chosenButton);
+// var chosenButton = document.getElementById(randomChosenColors);
+// flashButton(chosenButton);
 
 //EventListener:
 const buttons = document.querySelectorAll(".btn");
 buttons.forEach(function(button){
     button.addEventListener("click",function(event){
-        const userChosenColor = event.target.id;
+        var userChosenColor = event.target.id;
         userClickedPattern.push(userChosenColor);
         animatePress(userChosenColor);
+        checkAnswere(userClickedPattern.length -1);
 
     });
 });
 
 document.addEventListener("keypress",function(event){
     if(!started){
+        document.getElementById("level-title").textContent = "level "+level;
         nextSequence();
         started = true;
-        document.getElementById("level-title").textContent = "level "+level;
-        level++;
     }
 });
 
@@ -41,8 +38,16 @@ document.addEventListener("keypress",function(event){
 //functions:
 // Use this function to generate a random number and use that random number to choose the random button
 function nextSequence(){
-    const randomNumber = Math.floor(Math.random() * 4);
-    return randomNumber;
+    userClickedPattern = [];
+    level++;
+    document.getElementById("level-title").textContent = "level "+level;
+
+    var randomNumber = Math.floor(Math.random() * 4);
+    var randomChosenColors = buttonColors[randomNumber];
+    animatePress(randomChosenColors);
+    gamepattern.push(randomChosenColors);
+
+
 }
 //Function to make the random chosen color animate(flash):
 
@@ -59,4 +64,17 @@ function animatePress(currentColor){
     setTimeout(function(){
         button.classList.remove("pressed");
     },100);
+}
+
+function checkAnswere(currentLevel){
+  if(userClickedPattern[currentLevel] === gamepattern[currentLevel]){
+    console.log("sucess");
+    if(userClickedPattern.length === gamepattern.length){
+        setTimeout(function(){
+            nextSequence();
+        },1000)
+    }
+  }else{
+    console.log("wrong");
+  }
 }

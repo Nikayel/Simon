@@ -76,5 +76,9 @@ function checkAnswere(currentLevel){
     }
   }else{
     document.querySelector("body").classList.add("game-over");
+    setTimeout(function(){
+        document.querySelector("body").classList.remove("game-over");
+
+    },220);
   }
 }

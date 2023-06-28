@@ -81,5 +81,13 @@ function checkAnswere(currentLevel){
 
     },220);
     document.getElementById("level-title").textContent = "Game over! Your score was: "+level;
+    gameReset();
+
   }
+}
+//new function to start over the game after game resets:
+function gameReset(){
+    level = 0;
+    gamepattern = [];
+    started = false;
 }

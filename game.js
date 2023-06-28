@@ -80,7 +80,7 @@ function checkAnswere(currentLevel){
         document.querySelector("body").classList.remove("game-over");
 
     },220);
-    document.getElementById("level-title").textContent = "Game over! Your score was: "+level;
+    document.getElementById("level-title").textContent = "Game over! Your score was: "+level+" Press any key to restart";
     gameReset();
 
   }

@@ -4,6 +4,8 @@ var gamepattern = [];
 var userClickedPattern = [];
 let started = false;
 var level = 0;
+const gameOverSound = document.getElementById("gameOverSound");
+
 
 
 // var chosenButton = document.getElementById(randomChosenColors);
@@ -80,8 +82,9 @@ function checkAnswere(currentLevel){
         document.querySelector("body").classList.remove("game-over");
 
     },220);
-    document.getElementById("level-title").textContent = "Game over! Your score was: "+level+" Press any key to restart";
+    document.getElementById("level-title").textContent = "Game over! Your score was: "+level+" Press any key to restar";
     gameReset();
+    gameOverSound.play();
 
   }
 }

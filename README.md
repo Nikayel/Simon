@@ -1,4 +1,4 @@
-Simon Game coded by Nikayel Jamal
+Simon Game ( you have to get the right pattern given by the computer or you will lose)
 
 - I have USED HTML CSS and Javascript to make this Game
 - I did use online sources for some code to save time to on the CSS and HTML

@@ -53,12 +53,12 @@ function nextSequence(){
 }
 //Function to make the random chosen color animate(flash):
 
-function flashButton(button){
-    button.classList.add("pressed");
-    setTimeout(function(){
-        button.classList.remove("pressed");
-    },300);
-}
+// function flashButton(button){
+//     button.classList.add("pressed");
+//     setTimeout(function(){
+//         button.classList.remove("pressed");
+//     },300);
+// }
 //function to animate the button that is clicked by the user:
 function animatePress(currentColor){
     const button = document.querySelector(`.${currentColor}`);

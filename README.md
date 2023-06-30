@@ -22,6 +22,8 @@ there is total of two event Listeners :
 "click": -- The code attaches event listeners to each button with the class .btn. When a button is clicked, the associated function is executed.
 "KeyPress" -- The code also listens for the keypress event. If the game has not started (started is false), the level title is updated, nextSequence() is called to generate the first random sequence, and started is set to true.
 
+ ---( Functions ) ---
+
 nextSequence()
 This function is responsible for generating the next random sequence of button presses. It performs the following steps:
 -- Resets the userClickedPattern array to an empty array.
